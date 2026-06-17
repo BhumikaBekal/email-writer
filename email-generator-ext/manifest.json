@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Email Writer Assistant",
+    "version": "1.0",
+    "description": "Assists in writing emails using AI.",
+    "action" : {
+        "default_title": "Email Writer Assistant"
+    },
+    "permissions" : [
+        "activeTab",
+        "storage"
+    ],
+    "host_permissions": [
+        "http:localhost:8080/*",
+        "*://mail.google.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["*://mail.google.com/*"],
+            "js": ["content.js"],
+            "css": ["content.css"],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["icons/*"],
+            "matches": ["*://mail.google.com/*"]
+        }
+    ]
+} 
